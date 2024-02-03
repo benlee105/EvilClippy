@@ -16,10 +16,10 @@ Compile using the commands below:
 ## Usage examples
 
 **First Steps**
+
 Create a .DOCM file, and rename it as .DOC
 
 Then input your macros, followed by using EvilClippy.
-
 
 
 **Stomp VBA (abuse P-code)**
@@ -29,7 +29,6 @@ Put fake VBA code from text file *fakecode.vba* in all modules, while leaving P-
 `EvilClippy.exe -s fakecode.vba macrofile.doc`
 
 Note: VBA Stomping does not work for files saved in the Excel 97-2003 Workbook (.xls) format
-
 
 
 **Set/Remove VBA Project Locked/Unviewable Protection (Works!)**
@@ -45,13 +44,11 @@ To remove the Locked/Unviewable attributes use the '-uu' option:
 Note: You can remove the Locked/Unviewable attributes on files that were not locked with EvilClippy as well.
 
 
-
 **Set target Office version for VBA stomping (Untested)**
 
 Same as the above, but now explicitly targeting Word 2016 on x86. This means that Word 2016 on x86 will execute the P-code, while other versions of Word wil execute the code from *fakecode.vba* instead. Achieved by setting the appropriate version bytes in the _VBA_PROJECT stream [MS-OVBA 2.3.4.1].
 
 `EvilClippy.exe -s fakecode.vba -t 2016x86 macrofile.doc`
-
 
 
 **Serve a VBA stomped template via HTTP (Untested)**
@@ -61,7 +58,6 @@ Service *macrofile.dot* via HTTP port 8080 after performing VBA stomping. If thi
 `EvilClippy.exe -s fakecode.vba -w 8080 macrofile.dot`
 
 Note: The file you are serving must be a template (.dot instead of .doc). You can set a template via a URL (.dot extension is not required!) from the developer toolbar in Word. Also, fakecode.vba must have a VB_Base attribute set for a macro from a template (this means that your fakecode.vba must start with a line such as *Attribute VB_Base = "0{00020906-0000-0000-C000-000000000046}"*).
-
 
 
 **Set/reset random module names (Did not seem to work)**
